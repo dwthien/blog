@@ -1,0 +1,23 @@
+.navbar {
+  background-color: $primary-color;
+  .navbar-brand {
+    font-weight: bolder;
+     color: $accent-color;
+    .light {
+      font-weight: 300;
+      color: $primary-color-text;
+    }
+  }
+  .navbar-toggler {
+    outline: none;  
+  }
+  .nav-link {
+    color: $primary-color-light !important;
+    &.active {
+      color: $primary-color-text !important;
+    }
+  }
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  background-color: $primary-color !important;
+}

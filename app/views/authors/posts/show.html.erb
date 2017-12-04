@@ -7,9 +7,12 @@
 </div>
 
 <div class="row">
-  <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-center">
+  <div class="col-md-1 col-lg-2">
+    
+  </div>
+  <div class="col-md-10 col-lg-8 text-center">
     <h1><%= @post.title %></h1>
-    <p><%= @post.display_day_published %></p>
+    <h5><%= @post.display_day_published %></h5>
     <%= @post.body.html_safe %>
   </div>
 </div>

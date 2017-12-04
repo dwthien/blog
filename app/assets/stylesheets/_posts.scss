@@ -2,9 +2,10 @@
   .card {
     border: none;
     border-radius: 0;
-    border-bottom: 1px solid #181818;
+    // border-bottom: 1px solid #181818; gach duoi 
     height: 400px;
     margin-bottom: 20px;
+    background-color: white;
     .card-topper {
       height: 200px;
       width: 100%;
@@ -13,21 +14,19 @@
     }
     .card-block {
       padding: 10px;
-      .btn-read {
-        background-color: #e8e8e8;
-        font-weight: 300;
-        border-radius: 0;
-        color: black;
-        &:hover {
-          background-color: #d8d8d8;
-        }
-      }
       .card-title {
-        font-size: 1.7rem;
-        margin-bottom: 0.5rem;
+        font-size: 2.0rem;
+        margin-bottom: 0;
         a {
           color: black;
           text-decoration: none;
+        }
+      }
+      .tags {
+        margin-bottom: 0;
+        a {
+        font-family:  'Montserrat', sans-serif;
+        font-size: 13px;
         }
       }
       .published-date {
@@ -39,6 +38,7 @@
       }
       .card-text {
         font-size: 1.3rem;
+        color: black;
       }
     }
   }
