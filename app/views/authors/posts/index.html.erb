@@ -11,5 +11,8 @@
       <th colspan = "4">Title</th>
     </tr>
     <%= render @posts %>
+    <div class="apple_pagination">
+      <%= will_paginate @posts, container: false %>
+    </div>
   </table>
 </div>
