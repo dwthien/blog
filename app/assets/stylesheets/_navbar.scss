@@ -17,6 +17,14 @@
       color: $primary-color-text !important;
     }
   }
+  .nav-item.author-nav {
+    img {
+      height: 30px;
+      weight: 30px;
+      border-radius: 50%;
+      border: 2px solid $primary-color-light;
+    }
+  }
 }
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
   background-color: $primary-color !important;
