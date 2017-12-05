@@ -23,5 +23,23 @@ class Author < ApplicationRecord
   # :confirmable, :lockable, :registerable, :timeoutable and :omniauthable
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :post         
+  
+  has_many :post       
+
+  validates_presence_of :name, on: :update
+
+  def change_password(attrs)
+    update(password: attrs[:new_password], password_confirmation: attrs[:new_password_confirmation])
+  end
+
+  def gravatar_image_url
+    "https://www.gravatar.com/avatar/#{gravatar_hash}"
+  end
+
+  private
+
+  def gravatar_hash
+    Digest::MD5.hexdigest(email.downcase)
+  end
+
 end

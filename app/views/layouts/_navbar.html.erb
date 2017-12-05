@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <a class='navbar-brand' href='/'>
-      WoooW<span class='light'>blog</span>
+      Thien<span class='light'>blog</span>
     </a>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -24,7 +24,7 @@
           </li>
           <% if author_signed_in? %>
             <li class="nav-item dropdown">
-              <a href="#" class="nav-link <%= yield(:author) %>" id="navbarDropdownMenuLink" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Author <span class="caret"></span></a>
+              <a href="#" class="nav-link <%= yield(:author) %>" id="navbarDropdownMenuLink" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_author.name %> <span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <li>
                   <%= link_to 'My posts', authors_posts_path, class: "dropdown-item" %>
