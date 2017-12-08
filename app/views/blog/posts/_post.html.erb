@@ -9,7 +9,7 @@
       <p class="tags"><%= raw post.tags.map { |t| link_to t.name, posts_path(tag: t.name)}.join(', ') %></p>
       <h5 class="published-date"><%= post.display_day_published %></h5>
       <%= link_to post do %>
-        <p class="card-text"><%= truncate(post.body, length: 330) %></p>
+        <p class="card-text"><%= truncate(strip_tags(post.body), length: 230) %></p>
       <% end %>
     </div>
   </div>

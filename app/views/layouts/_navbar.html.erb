@@ -1,46 +1,101 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
+<nav class="navbar navbar-top <%= request.original_url == root_url ? 'in-home' : 'not-home' %>">
+  <div class="container">
+    <ul class="nav navbar-nav navbar-left">
+    <div class="icon-blog">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 508.52 508.52" style="enable-background:new 0 0 508.52 508.52;" xml:space="preserve" width="40px" height="40px">
+        <g>
+          <g>
+            <g>
+              <g>
+                <path d="M254.26,0C113.845,0,0,113.845,0,254.26s113.845,254.26,254.26,254.26      s254.26-113.845,254.26-254.26C508.52,113.813,394.675,0,254.26,0z M412.727,310.451c0,56.509-45.989,102.308-102.943,102.308      H198.831c-56.891,0-103.102-45.735-103.102-102.308V198.132c0.032-56.541,46.18-102.371,103.102-102.371h51.964      c56.954,0,102.53,42.525,102.53,99.066c0.731,10.584,10.298,19.8,21.167,19.8h17.766c11.378,0,20.5,11.95,20.5,23.233      L412.727,310.451L412.727,310.451z" fill="<%= request.original_url == root_url ? '#000000' : '#FFFFFF' %>"/>
+                <path d="M313.693,293.893H194.827c-10.901,0-19.8,8.899-19.8,19.801c0,10.87,8.931,19.8,19.8,19.8      h118.866c10.901,0,19.8-8.931,19.8-19.8C333.494,302.792,324.594,293.893,313.693,293.893z" fill="<%= request.original_url == root_url ? '#000000' : '#FFFFFF' %>"/>
+                <path d="M194.827,214.627h59.433c10.901,0,19.8-8.931,19.8-19.8c0-10.901-8.931-19.8-19.8-19.8h-59.433      c-10.901,0-19.8,8.931-19.8,19.8C174.994,205.728,183.925,214.627,194.827,214.627z" fill="<%= request.original_url == root_url ? '#000000' : '#FFFFFF' %>"/>
+              </g>
+            </g>
+          </g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+      </svg>
+    </div>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <% if author_signed_in? %>
+        <li class="author-nav">
+            <a href="#" class="dropdown-toggle nav-link <%= yield(:author) %>" id="navbarDropdownMenuLink" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <%= image_tag(current_author.gravatar_image_url) %>
+              <%= current_author.display_name %> <span class="caret"></span></a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li>
+                <%= link_to 'My posts', authors_posts_path, class: "dropdown-item" %>
+              </li>
+              <li>
+                <%= link_to 'Account', authors_account_path, class: "dropdown-item" %>
+              </li>
+              <li>
+                <%= link_to 'Logout', destroy_author_session_path, method: :delete, class: "dropdown-item" %>
+              </li>
+            </ul>
+          </li>
+      <% else %>
+        <li class="nav-item sign-in">
+          <%= link_to 'Sign in', new_author_session_path, class: "nav-link" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
+<% if request.original_url == root_url %>
+
+  <div class="back_nav">
+  </div>
+<% end %>
+<nav class="navbar navbar-bottom <%= request.original_url == root_url ? 'in-home' : 'not-home' %>">
+  <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <a class='navbar-brand' href='/'>
-      Thien<span class='light'>blog</span>
+      Thien<span class='light'>Blog</span>
     </a>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-          <li class="nav-item">
-            <%= link_to 'Blog', root_path, class: "nav-link #{yield(:blog_active)}" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'About', about_path, class: "nav-link #{yield(:about_active)}" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'Contact', contact_path, class: "nav-link #{yield(:contact_active)}" %>
-          </li>
-          <% if author_signed_in? %>
-            <li class="nav-item dropdown author-nav">
-              <a href="#" class="nav-link <%= yield(:author) %>" id="navbarDropdownMenuLink" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <%= image_tag(current_author.gravatar_image_url) %>
-                <%= current_author.display_name %> <span class="caret"></span></a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li>
-                  <%= link_to 'My posts', authors_posts_path, class: "dropdown-item" %>
-                </li>
-                <li>
-                  <%= link_to 'Account', authors_account_path, class: "dropdown-item" %>
-                </li>
-                <li>
-                  <%= link_to 'Logout', destroy_author_session_path, method: :delete, class: "dropdown-item" %>
-                </li>
-              </ul>
-            </li>
-          <% end %>  
-      </ul>
-    </div><!-- /.navbar-collapse -->
+    <ul class="nav navbar-nav navbar-<%= request.original_url == root_url ? 'right' : 'left' %>">
+      <% if request.original_url == root_url %>
+
+          <%= link_to 'Blog', root_path, class: "nav-link #{yield(:blog_active)}" %>
+
+      <% end %>
+        <%= link_to 'About', about_path, class: "nav-link #{yield(:about_active)}" %>
+
+
+        <%= link_to 'Contact', contact_path, class: "nav-link #{yield(:contact_active)}" %>
+
+    </ul>
   </div><!-- /.container-fluid -->
 </nav>
