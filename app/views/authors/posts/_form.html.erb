@@ -1,17 +1,16 @@
-<%= form_for(post, url: url) do |f| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<div class="row">
+  <%= form_for(post, url: url) do |f| %>
+    <% if post.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-      <ul>
-      <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="row">
+        <ul>
+        <% post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
     <div class="col-md-4">
       <div class="card">
         <div class="card-block">
@@ -70,5 +69,5 @@
         <%= f.text_area :body %>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
