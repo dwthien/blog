@@ -4,7 +4,8 @@ module Blog
     # GET /posts
     # GET /posts.json
     def index
-      @posts = storage.list_for(params[:page], params[:tag])
+      puts params.inspect
+      @posts = storage.list_for(params[:page], params[:author_id], params[:tag])
     end
 
     # GET /posts/1

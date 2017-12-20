@@ -14,8 +14,11 @@
     }
     .card-block {
       padding: 10px;
+      a:hover {
+        text-decoration: none;
+      }
       .card-title {
-        font-size: 2.0rem;
+        font-size: 28px;
         margin-bottom: 0;
         a {
           color: black;
@@ -29,16 +32,41 @@
         font-size: 13px;
         }
       }
-      .published-date {
-        font-size: 1.2rem;
-        color: #787878;
-        font-weight: 300;
-        margin-top: 0.3rem;
-        margin-bottom: 0.3rem;
-      }
+
       .card-text {
-        font-size: 1.3rem;
-        color: black;
+        font-size: 20px;
+        color: rgba(0,0,0,.54)!important;
+        font-weight: normal;
+      }
+      .author-bio {
+        background-color: white;
+        border-radius: 10px;
+        margin: 0;
+        .author-img {
+          width: 15%;
+          float: left;
+        }
+        img {
+          height: 40px;
+          border-radius: 50%;
+        }
+        img, h4 {
+          margin-bottom: 5px;
+        }
+        h4 {
+          font-weight: bold;
+          font-size: 15px
+        }
+        h5 {
+          font-weight: 400;          
+        }
+        .author-published-date {
+          font-size: 13px;
+          color: #787878;
+          font-weight: 300;
+          margin-top: 0.3rem;
+          margin-bottom: 0.3rem;
+        }
       }
     }
   }
@@ -81,9 +109,6 @@
     h4 {
       font-weight: bold;
       font-size: 20px
-    }
-    h5 {
-      font-weight: 400;
     }
   }
 }

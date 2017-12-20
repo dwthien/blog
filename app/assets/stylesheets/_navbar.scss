@@ -22,8 +22,21 @@
 .navbar-top.in-home {
   height: 60px;
   background-color: #FFFFFF;
+  .sign-in {
+    margin-top: 10px;
+    .nav-link {
+      padding: 9px;
+      color: #074;
+    }
+    .nav-link:hover, .nav-link:focus {
+      color: #030303FF !important;
+      background-color:#FFF !important;
+      text-decoration: none;
+    }
+  }
   .author-nav {
     .nav-link {
+      background-color:#FFF !important;
       padding: 9px;
       color: #000;
     }
@@ -36,8 +49,22 @@
 .navbar-top.not-home {
   height: 40px;
   background-color: #00BFA5;
+  .sign-in {
+    margin-top: 10px;
+    .nav-link {
+      font-size: 17px;
+      padding: 9px;
+      color: #ECECEC;
+    }
+    .nav-link:hover, .nav-link:focus {
+      color: #FFF !important;
+      background-color: #00BFA5 !important;
+      text-decoration: none;
+    }
+  }
   .author-nav {
     .nav-link {
+      background-color:#00BFA5 !important;
       padding: 9px;
       color: #FFF;
     }
@@ -56,6 +83,9 @@
       font-weight: 300;
       color: $primary-color-text;
     }
+  }
+  .navbar-brand:hover, .nav-link:focus {
+    color: #00BFA5 !important;
   }
   background-color: #00BFA5;
   .navbar-nav {

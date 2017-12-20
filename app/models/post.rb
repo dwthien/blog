@@ -28,9 +28,10 @@ class Post < ApplicationRecord
   scope :published, -> { where(published: true) }
   scope :recent_paginated, -> (page) { most_recent.paginate(page: page, per_page: PER_PAGE) }
   scope :with_tag, -> (tag) { tagged_with(tag) if tag.present? }
+  scope :whereauthor, -> (author_id) { where(author_id: author_id) if author_id.present? }
 
-  scope :list_for, -> (page, tag) do
-      recent_paginated(page).with_tag(tag)
+  scope :list_for, -> (page, author_id, tag) do
+      recent_paginated(page).whereauthor(author_id).with_tag(tag)
   end
 
   def should_generate_new_friendly_id?
@@ -39,7 +40,7 @@ class Post < ApplicationRecord
 
   def display_day_published
     if published_at.present?
-      "Published #{published_at.strftime('%-b %-d, %Y')}"
+      "#{published_at.strftime('%-b %-d, %Y')}"
     else
       "Not published yet."
     end
