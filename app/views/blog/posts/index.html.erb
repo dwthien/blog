@@ -2,8 +2,12 @@
 <% provide(:blog_active, 'active') %>
 
 <div class="row">
-  <%= render @posts %>
+  <div class="col-lg-8">
+    <%= render @posts %>
+    <div class="apple_pagination col-lg-12">
+      <%= will_paginate @posts, container: false %>
+    </div>
+  </div>
+  <div class="col-lg-4"></div>
 </div>
-<div class="apple_pagination">
-  <%= will_paginate @posts, container: false %>
-</div>
+
